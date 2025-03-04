@@ -1,6 +1,6 @@
 "use client"
 import { Search } from 'lucide-react';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 interface Recipe {
   id: number;
@@ -17,7 +17,7 @@ const Question1 = () => {
   const [show, setShow] = useState<boolean>(false);
   const [cache, setCache] = useState<Cache>({});
   
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (cache[value]) {
       setResults(cache[value]);
       return;
@@ -26,13 +26,14 @@ const Question1 = () => {
     const data = await response.json();
     setResults(data?.recipes)
     setCache((prev) => ({ ...prev, [value]: data?.recipes }))
-  }
+  }, [value, cache]);
+
   useEffect(() => {
     const debounce = setTimeout(fetchData, 400);
     return () => {
       clearTimeout(debounce)
     }
-  }, [value])
+  }, [fetchData])
   return (
     <div>
       <div className='relative'>
@@ -48,7 +49,7 @@ const Question1 = () => {
       </div>
       {show && (
         <div className='max-h-[50vh] bg-slate-800 overflow-y-scroll scrollbar-hide text-white rounded-lg'>
-          {results?.map((data: any) => (
+          {results?.map((data: Recipe) => (
             <div className='px-4 py-2 hover:bg-slate-700' key={data.id}>
               <p>{data?.name}</p>
             </div>

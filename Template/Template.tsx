@@ -22,6 +22,7 @@ const Template: React.FC<Props> = ({ Heading, solution ,questionNumber}) => {
                 </div>
                 <CircleArrowRight className='w-10 h-10 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer' onClick={() => router.push(`${questionNumber}`)} />
             </div>
+            
         </div>
     )
 }
