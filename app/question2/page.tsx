@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <Template Heading={`Question2 :- Dynamic Progess bar`} solution={<Question2/>} questionNumber='question2'/>
+    <Template Heading={`Question2 :- Dynamic Progess bar`} solution={<Question2/>} questionNumber='question3'/>
   )
 }
 

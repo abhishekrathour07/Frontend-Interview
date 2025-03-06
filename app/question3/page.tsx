@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <Template Heading='Pagination in Web page' solution={<Question3/>} questionNumber='Question3' />
+    <Template Heading='Pagination in Web page' solution={<Question3/>} questionNumber='question4' />
   )
 }
 export default page
