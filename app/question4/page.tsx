@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <Template Heading="File-Folder Structure" solution={<Question4/>} questionNumber='question5' />
+    <Template Heading="File-Folder Structure" solution={<Question4/>} nextQuestion='question5' />
     
   )
 }

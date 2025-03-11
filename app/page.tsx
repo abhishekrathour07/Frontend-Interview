@@ -4,7 +4,7 @@ import React from 'react'
 
 function page() {
   return (
-    <Template Heading='Frontend Interview Questions' questionNumber='question1'/>
+    <Template Heading='Frontend Interview Questions' nextQuestion='question1'/>
   )
 }
 

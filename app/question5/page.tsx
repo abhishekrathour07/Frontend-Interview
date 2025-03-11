@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-   <Template Heading='Question5 :-Tab Trigger content view' solution={<Question5/>} questionNumber='question6'/>
+   <Template Heading='Question5 :-Tab Trigger content view' solution={<Question5/>} nextQuestion='question6'/>
   )
 }
 

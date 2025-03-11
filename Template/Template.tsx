@@ -5,10 +5,9 @@ import React from 'react'
 type Props = {
     Heading: string,
     solution?: React.ReactNode,
-    questionNumber?:string,
+    nextQuestion?:string,
 }
-const Template: React.FC<Props> = ({ Heading, solution ,questionNumber}) => {
-    console.log(questionNumber)
+const Template: React.FC<Props> = ({ Heading, solution ,nextQuestion}) => {
     const router = useRouter()
     return (
         <div className='bg-gradient-to-br from-slate-950 to-blue-950 h-screen flex justify-center items-center p-4'>
@@ -21,7 +20,7 @@ const Template: React.FC<Props> = ({ Heading, solution ,questionNumber}) => {
                     </div>
 
                 </div>
-                <CircleArrowRight className='w-10 h-10 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer' onClick={() => router.push(`/${questionNumber}`)} />
+                <CircleArrowRight className='w-10 h-10 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer' onClick={() => router.push(`/${nextQuestion}`)} />
             </div>
             
         </div>
