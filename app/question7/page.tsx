@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
     return (
-        <Template Heading='Question' solution={<Question7/>} nextQuestion='question8' />
+        <Template Heading='Question7:- Accordian and dialog box' solution={<Question7/>} nextQuestion='question8' />
     )
 }
 
