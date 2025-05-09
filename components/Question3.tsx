@@ -16,7 +16,7 @@ const Question3 = () => {
     fetchData()
   }, [])
 
-  const pageCount = 9;
+  const pageCount = Math.ceil(recipes.length/6);
   const totalItems = recipes.length;
   const itemsPerPage = Math.ceil(totalItems / pageCount);
   const start = (currentPage - 1) * itemsPerPage;
