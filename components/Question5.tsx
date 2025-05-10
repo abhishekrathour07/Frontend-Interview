@@ -20,31 +20,20 @@ const Question5 = () => {
     const [show, setShow] = useState<string>("Tab 1")
     return (
         <div className='bg-slate-900 h-[70vh] w-full rounded-lg flex flex-col'>
-            <div className='flex gap-4 p-4 border-b border-slate-700 justify-center'>
+            <div className='flex gap-6 cursor-pointer items-center border-b px-6 py-2 border-gray-400'>
                 {content.map((data: any) => (
-                    <div 
-                        key={data.title}
-                        onClick={() => setShow(data.title)} 
-                        className={`px-4 py-2 rounded-lg cursor-pointer transition-colors
-                            ${show === data.title 
-                                ? 'border-b-3 border-green-500' 
-                                : ""
-                            }`}
-                    >
-                        <h1>{data.title}</h1>
+                    <div className={`p-2 rounded-lg transition-all duration-500 ${show === data.title ? "bg-white text-black " : "border-none"}`} key={data.title} onClick={() => setShow(data.title)}>
+                        {data.title}
                     </div>
                 ))}
             </div>
-            
-            <div className='p-6 flex-1'>
-                {content.map((data: any) => (
-                    show === data.title && (
-                        <div key={data.title} className='h-full flex items-center justify-center text-white text-xl'>
-                            <h1>{data.description}</h1>
-                        </div>
-                    )
-                ))}
-            </div>
+            {content.map((data: any) => (
+                show === data.title && (
+                    <div className='flex inset-0 items-center justify-center h-full' key={data.title}>
+
+                        <p> {data.description}</p>
+                    </div>
+                )))}
         </div>
     )
 }
