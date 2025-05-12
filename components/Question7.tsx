@@ -1,84 +1,52 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { accordianData } from './data/question7'
-import { MinusCircle, PlusCircle } from 'lucide-react'
+import { Minus, Plus } from 'lucide-react'
 
 const Question7 = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [openModal, setOpenModal] = useState(false)
-  const modalRef = useRef<HTMLDivElement>(null)
-
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        setOpenModal(false)
+  const [activeIndex, setIndex] = useState<number | null>(0)
+  const [show, setshow] = useState<boolean>(false)
+  const modalRef = useRef(null)
+  useEffect(() => {
+    function closeRef(e: MouseEvent) {
+      if (modalRef.current && !(modalRef.current as any).contains(e.target)) {
+        setshow(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+    if (show) {
+      document.addEventListener('mousedown', closeRef);
     }
-  }, [])
-
+    return () => {
+      document.removeEventListener('mousedown', closeRef);
+    };
+  }, [show]);
   return (
-    <div className='h-[70vh] bg-slate-800 w-full rounded-lg p-6 flex items-center justify-center gap-4 relative'>
-      <div className='h-full bg-slate-800 w-full flex  rounded-lg p-6 gap-4 '>
-        <div className='w-1/2 bg-slate-700 flex flex-col justify-center p-4 rounded-lg'>
-          {accordianData.map((data: any, index: number) => (
-            <div key={index} >
-              <div className='p-4 flex my-1 bg-slate-800  rounded-lg justify-between'>
-                <p>{data.title}</p>
-                {activeIndex === index ?
-                  <MinusCircle
-                    className='cursor-pointer'
-                    onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  />
-                  :
-                  <PlusCircle
-                    className='cursor-pointer'
-                    onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  />
-
-                }
-              </div>
-              {activeIndex === index && (
-                <div className=' px-4 py-2 my-1 bg-slate-800 rounded-lg'>
-                  {data.content}
-                </div>
-              )}
+    <div className='h-75vh flex gap-4 w-full bg-slate-800 rounded-lg p-4'>
+      <div className='w-1/2 bg-slate-900 p-4 h-[60vh] rounded-lg '>
+        {accordianData.map((data: any, index: number) => (
+          <div key={index}>
+            <div className='flex justify-between mt-4 items-center px-4 bg-slate-700 py-2 rounded-lg'>
+              <h1>{data.title}</h1>
+              {activeIndex === index ? <Minus onClick={() => setIndex(null)} /> : <Plus onClick={() => setIndex(index)} />}
             </div>
-          ))}
-        </div>
-        <div className='w-1/2 bg-slate-700 flex flex-col p-4 rounded-lg items-center '>
-          <h2 className='text-2xl'>Dialog Box</h2>
-          <div className='border w-full h-full mt-4 flex items-center justify-center'>
-            <button className='bg-white text-black px-4 py-2 border-none outline-none rounded-lg cursor-pointer'
-              onClick={() => setOpenModal(!openModal)}>Click Me</button>
+            {activeIndex === index && (
+              <div className='mt-1 px-4 py-2'>
+                <p>{data.content}</p>
+              </div>
+            )}
           </div>
-        </div>
+        ))}
       </div>
-      {openModal && (
-        <div ref={modalRef} className='bg-slate-900 rounded-lg px-6 py-8 absolute min-w-96  z-50'>
-          <div className='text-2xl  flex items-center justify-center'>
-            <p>Do you want to submit</p>
+      <div className='w-1/2  bg-slate-900 p-4 h-[60vh] rounded-lg flex justify-center items-center'>
+        <button className='bg-white text-black px-4 py-2 rounded-lg' onClick={() => setshow(true)}>Open Dialog</button>
+        {show && (
+          <div ref={modalRef} className='bg-slate-700 h-44 p-4 rounded-lg fixed  top-[40%]  left-[50%]'>
+            <h1>Dialog box opened</h1>
+            <button className=' px-4 py-2 border mt-12 rounded-lg' onClick={() => setshow(false)}>Close</button>
           </div>
-          <div className='flex gap-2 justify-end mt-8'>
-            <button className='bg-transparent border text-white px-4 py-2 
-             outline-none rounded-lg cursor-pointer' onClick={() => setOpenModal(false)}>
-              Cancel
-            </button>
+        )}
 
-            <button className='bg-white text-black px-4 py-2
-             border-none outline-none rounded-lg cursor-pointer'
-              onClick={() => {
-                setOpenModal(false)
-                alert("Data submitted successfully")
-              }}>
-              Submit
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   )
 }
