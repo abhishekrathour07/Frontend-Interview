@@ -12,7 +12,7 @@ const Question15 = () => {
   ];
 
   return (
-    <div className='bg-slate-800 h-[75vh] w-full rounded-lg flex flex-col gap-6 justify-center p-4'>
+    <div className='bg-slate-800 h-[70vh] w-full rounded-lg flex flex-col gap-6 justify-center p-4'>
     <div className='grid grid-cols-4 px-4 items-center justify-center'>
       {recipeFilters.map((data:any,index:number)=>(
         <div key={data.name} className='relative '>
