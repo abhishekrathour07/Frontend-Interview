@@ -1,0 +1,17 @@
+export const usersData = [
+  { id: 1, name: "Aarav Mehta", age: 22 },
+  { id: 2, name: "Sanya Kapoor", age: 25 },
+  { id: 3, name: "Rohan Verma", age: 28 },
+  { id: 4, name: "Neha Sharma", age: 23 },
+  { id: 5, name: "Arjun Rao", age: 30 },
+  { id: 6, name: "Ishita Desai", age: 26 },
+  { id: 7, name: "Krishna Iyer", age: 21 },
+  { id: 8, name: "Pooja Nair", age: 27 },
+  { id: 9, name: "Aditya Reddy", age: 29 },
+  { id: 10, name: "Meera Joshi", age: 24 },
+  { id: 11, name: "Dev Patel", age: 22 },
+  { id: 12, name: "Ananya Roy", age: 31 },
+  { id: 13, name: "Yash Thakur", age: 20 },
+  { id: 14, name: "Kavya Singh", age: 28 },
+  { id: 15, name: "Rahul Das", age: 26 },
+];
