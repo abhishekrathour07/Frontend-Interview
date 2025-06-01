@@ -3,7 +3,7 @@ import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 type Props = {
-    Heading: string,
+    Heading?: string,
     solution?: React.ReactNode,
     nextQuestion?:string,
 }
