@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useFetch = (url: string) => {
     const [data, setData] = useState<any[]>([])
@@ -13,7 +13,7 @@ const useFetch = (url: string) => {
             setData(data?.recipes);
 
         } catch (err: any) {
-            setError("Error while fetching the data")
+            setError(`Error while fetching the data ${err}`)
         } finally {
             setLoading(false)
         }
