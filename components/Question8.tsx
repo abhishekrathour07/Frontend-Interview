@@ -27,13 +27,6 @@ const Question8 = () => {
     }
   }
 
-  const verifyOTP = () => {
-    const otpValue = otp.join("")
-    if (otpValue.length === 6) {
-      alert(`OTP Entered: ${otpValue}`)
-    }
-  }
-
   return (
     <div className='bg-slate-800 h-[70vh] rounded-lg flex justify-center flex-col items-center'>
       <h1 className='text-xl mb-4'>Enter the OTP</h1>

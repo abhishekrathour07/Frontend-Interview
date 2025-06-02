@@ -1,6 +1,6 @@
 "use client"
 import { MoveLeft, MoveRight } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 
 const Question13 = () => {
     const [activeIndex, setActiveindex] = useState(0)
@@ -12,11 +12,12 @@ const Question13 = () => {
 
     ]
     const onrightClick = () => {
-        activeIndex === data.length - 1 ? setActiveindex(0) : setActiveindex(activeIndex + 1)
+        return  activeIndex === data.length - 1 ? setActiveindex(0) : setActiveindex(activeIndex + 1)
     }
     const onlefttClick = () => {
-        activeIndex === 0 ? setActiveindex(data.length - 1) : setActiveindex(activeIndex - 1)
+       return  activeIndex === 0 ? setActiveindex(data.length - 1) : setActiveindex(activeIndex - 1)
     }
+    
     return (
         <div className='bg-slate-800 h-[75vh]  w-full rounded-lg flex justify-center p-4'>
             <button className=' px-4 py-1 bg-white text-black' onClick={onlefttClick}><MoveLeft /></button>

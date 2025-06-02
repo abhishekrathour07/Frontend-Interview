@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Question11 = () => {
     const [width, setWidth] = useState(30);
     return (
-        <div className='bg-slate-800 h-[75vh] w-full rounded-lg flex p-4 gap-4'>
+        <div className='bg-slate-800 h-[75vh] w-full rounded-lg flex flex-col p-4 gap-4'>
             <div className='flex justify-between items-center'>
                 <h1 className='text-2xl'>Progress bar</h1>
                 <span> {width}%</span>

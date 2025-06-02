@@ -5,7 +5,7 @@ import React from 'react'
 const page = () => {
     return (
         <div>
-            <Template Heading='Data Table' solution={<Question20 />} nextQuestion='question21' />
+            <Template Heading='Data Table' solution={<Question20 />} nextQuestion='question22' />
         </div>
     )
 }

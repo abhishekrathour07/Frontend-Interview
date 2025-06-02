@@ -1,4 +1,4 @@
-import { FilePlus, FolderPlus, ListCollapse, Minimize } from 'lucide-react'
+import { FilePlus, FolderPlus, ListCollapse } from 'lucide-react'
 import React from 'react'
 
 const Question4 = () => {
