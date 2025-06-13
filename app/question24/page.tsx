@@ -1,11 +1,21 @@
-import React from 'react'
+"use client"
+import React, { useState, useRef } from "react";
 
-const page = () => {
+export default function page() {
+  const countRef = useRef(0);
+  const [countState, setCountState] = useState(0);
+
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div className="flex flex-col h-screen justify-center items-center">
+      <p>CountRef: {countRef.current}</p>
 
-export default page
+      <button className="px-4 py-2 border rounded-2xl" onClick={() => (countRef.current += 1)}>Increment Ref</button>
+
+      <p>CountState: {countState}</p>
+
+      <button className="px-4 py-2 border rounded-2xl" onClick={() => setCountState(countState + 1)}>
+        Increment State
+      </button>
+    </div>
+  );
+}
