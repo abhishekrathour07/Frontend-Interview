@@ -1,21 +1,13 @@
-"use client"
-import React, { useState, useRef } from "react";
+import Question24 from '@/components/Question24'
+import Template from '@/Template/Template'
+import React from 'react'
 
-export default function page() {
-  const countRef = useRef(0);
-  const [countState, setCountState] = useState(0);
-
+const page = () => {
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
-      <p>CountRef: {countRef.current}</p>
-
-      <button className="px-4 py-2 border rounded-2xl" onClick={() => (countRef.current += 1)}>Increment Ref</button>
-
-      <p>CountState: {countState}</p>
-
-      <button className="px-4 py-2 border rounded-2xl" onClick={() => setCountState(countState + 1)}>
-        Increment State
-      </button>
+    <div>
+      <Template Heading='UseRef working Principal' solution={<Question24 />} nextQuestion='question25' />
     </div>
-  );
+  )
 }
+
+export default page
